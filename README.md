@@ -1,2 +1,2 @@
-# ladec
+# LADEC
 LADEC - Laboratorio de Exames
