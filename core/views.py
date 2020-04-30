@@ -1,3 +1,9 @@
 from django.shortcuts import render
+from blog.models import Autor, Artigo
+from django.shortcuts import get_object_or_404
 
-# Create your views here.
+
+def index(request):
+    artigos = Artigo.objects.all()
+    context = {'artigos': artigos}
+    return render(request, 'index.html', context)

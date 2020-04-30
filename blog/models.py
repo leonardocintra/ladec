@@ -1,20 +1,22 @@
 from django.db import models
 from django.conf import settings
+from django.urls import reverse
 
 
 class Autor(models.Model):
     nome = models.OneToOneField(
         settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
-    nome_exibir = models.CharField('Nome', max_length=200, blank=True)
+    nome_exibir = models.CharField(
+        'Nome', max_length=200, blank=False, null=False)
     data_cadastro = models.DateTimeField(auto_now_add=True)
 
     class Meta:
         verbose_name = 'Autor'
         verbose_name_plural = 'Autores'
-        ordering = ['nome']
+        ordering = ['nome_exibir']
 
     def __str__(self):
-        return self.nome
+        return self.nome_exibir
 
 
 class Artigo(models.Model):
@@ -34,3 +36,6 @@ class Artigo(models.Model):
 
     def __str__(self):
         return self.titulo
+
+    def get_absolute_url(self):
+        return reverse('blog:artigo', kwargs={'slug': self.slug})
