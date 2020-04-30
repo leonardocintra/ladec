@@ -1,0 +1,1 @@
+web: gunicorn ladec.wsgi --log-file -

@@ -1,0 +1,16 @@
+{
+    "name": "Grupo Ladec - Laboratorio",
+    "description": "Laboratorio de exames",
+    "image": "heroku/python",
+    "repository": "https://github.com/leonardocintra/ladec",
+    "keywords": ["python", "django" ],
+    "addons": [ "heroku-postgresql" ],,
+    "environments": {
+      "test": {
+        "scripts": {
+          "test-setup": "python manage.py collectstatic --noinput",
+          "test": "python manage.py test"
+        }
+      }
+    }
+  }
