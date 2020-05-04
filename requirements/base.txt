@@ -1,3 +1,4 @@
+cloudinary
 dj-database-url
 dj-static
 django
