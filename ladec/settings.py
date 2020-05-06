@@ -29,7 +29,7 @@ SECRET_KEY = '6s_g(&(wo=m&ip4b)q)dfgns=5d8*1ymw3idj!-=^e1**i**hu'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['ladec-stage.herokuapp.com', 'ladec.herokuapp.com']
+ALLOWED_HOSTS = ['ladec-stage.herokuapp.com', 'ladec.herokuapp.com', '127.0.0.1']
 
 
 # Application definition
