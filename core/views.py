@@ -6,3 +6,7 @@ def index(request):
     artigos = Artigo.objects.all()
     context = {'artigos': artigos}
     return render(request, 'index.html', context)
+
+
+def sobre(request):
+    return render(request, 'sobre.html')

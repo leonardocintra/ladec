@@ -1,6 +1,7 @@
 from django.db import models
 from django.conf import settings
 from django.urls import reverse
+from cloudinary.models import CloudinaryField
 
 
 class Categoria(models.Model):
@@ -42,6 +43,7 @@ class Artigo(models.Model):
     descricao = models.TextField('Descrição')
     data_publicacao = models.DateTimeField(
         'Data Publicação', auto_now_add=True)
+    imagem_home = CloudinaryField('Imagem na Home Page', blank=True, null=True)
 
     class Meta:
         verbose_name = 'Artigo'
@@ -53,3 +55,21 @@ class Artigo(models.Model):
 
     def get_absolute_url(self):
         return reverse('blog:artigo', kwargs={'slug': self.slug})
+
+
+class ArtigoImages(models.Model):
+    artigo = models.ForeignKey(
+        Artigo, on_delete=models.CASCADE, related_name='images')
+    imagem = CloudinaryField('Imagem')
+    descricao = models.CharField(
+        'Descrição', max_length=200, blank=True, default='')
+    data_publicacao = models.DateTimeField(
+        'Data Publicação', auto_now_add=True)
+
+    class Meta:
+        verbose_name = 'Imagem Artigo'
+        verbose_name_plural = 'Imagens do Artigo'
+        ordering = ['-data_publicacao']
+
+    def __str__(self):
+        return self.artigo.titulo
