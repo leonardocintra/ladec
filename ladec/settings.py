@@ -29,7 +29,8 @@ SECRET_KEY = '6s_g(&(wo=m&ip4b)q)dfgns=5d8*1ymw3idj!-=^e1**i**hu'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['ladec-stage.herokuapp.com', 'ladec.herokuapp.com']
+ALLOWED_HOSTS = ['grupoladec-stage.herokuapp.com',
+                 'ladec.herokuapp.com', '127.0.0.1']
 
 
 # Application definition
@@ -41,6 +42,8 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+
+    'cloudinary',
 
     'core',
     'blog',
@@ -108,6 +111,13 @@ AUTH_PASSWORD_VALIDATORS = [
         'NAME': 'django.contrib.auth.password_validation.NumericPasswordValidator',
     },
 ]
+
+# Cloudinary
+CLOUDINARY = {
+    'cloud_name': os.environ.get('CLOUD_NAME', 'leonardocintra'),
+    'api_key': os.environ.get('API_KEY', '182946961533113'),
+    'api_secret': os.environ.get('API_SECRET', 'LAIVTLNHtG5x-TTdUmHgaE3CnsM')
+}
 
 
 # Internationalization
