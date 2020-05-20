@@ -15,21 +15,17 @@
       </h1>
 
       {% for artigo in artigos %}
-
-
       <!-- Blog Post -->
       <div class="card mb-4">
-        <img class="card-img-top"
-          src="https://res.cloudinary.com/leonardocintra/image/upload/c_fill,h_300,w_750/v1460474915/u3d5a7z4o3s4wskmsgis.jpg"
-          alt="Card image cap">
+        <img class="card-img-top" src="{{ artigo.imagem_home.url }}" alt="Card image cap">
         <div class="card-body">
           <h2 class="card-title">{{ artigo.titulo }}</h2>
           <p class="card-text">{{ artigo.manchete }}</p>
-          <a href="#" class="btn btn-primary">Leia mais &rarr;</a>
+          <a href="artigo/{{ artigo.slug }}/" class="btn btn-primary">Leia mais &rarr;</a>
         </div>
         <div class="card-footer text-muted">
           {{ artigo.data_publicacao }} por
-          <a href="#">{{ artigo.autor.nome_exibir }}</a>
+          {{ artigo.autor.nome_exibir }}
         </div>
       </div>
       {% endfor %}
@@ -46,50 +42,7 @@
 
     </div>
 
-    <!-- Sidebar Widgets Column -->
-    <div class="col-md-4">
-
-      <!-- Search Widget -->
-      <div class="card my-4">
-        <h5 class="card-header">Procurar</h5>
-        <div class="card-body">
-          <div class="input-group">
-            <input type="text" class="form-control" placeholder="Procurar por...">
-            <span class="input-group-btn">
-              <button class="btn btn-secondary" type="button">Ir!</button>
-            </span>
-          </div>
-        </div>
-      </div>
-
-      <!-- Categories Widget -->
-      <div class="card my-4">
-        <h5 class="card-header">Categorias</h5>
-        <div class="card-body">
-          <div class="row">
-            <div class="col-lg-6">
-              <ul class="list-unstyled mb-0">
-                {% for categoria in categorias %}
-                <li>
-                  <a href="#">{{ categoria.descricao }}</a>
-                </li>
-                {% endfor %}
-              </ul>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <!-- Side Widget -->
-      <div class="card my-4">
-        <h5 class="card-header">Sobre nossas pesquisas</h5>
-        <div class="card-body">
-          Contamos com profissionais altamente capacitados, ja com anos de experiencia na área. Todas a noticias e
-          pesquisas que postamos aqui, são validados por nossos profissionais.
-        </div>
-      </div>
-
-    </div>
+    {% include "_sidebar_widgets_column.html" %}
 
   </div>
   <!-- /.row -->

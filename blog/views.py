@@ -10,3 +10,13 @@ def index(request):
         'categorias': categorias,
     }
     return render(request, 'blog.html', context)
+
+
+def artigo(request, slug):
+    artigo = Artigo.objects.get(slug=slug)
+    categorias = Categoria.objects.all()
+    context = {
+        'artigo': artigo,
+        'categorias': categorias,
+    }
+    return render(request, 'artigo.html', context)
