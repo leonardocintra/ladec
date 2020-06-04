@@ -112,12 +112,9 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
+
 # Cloudinary
-CLOUDINARY = {
-    'cloud_name': os.environ.get('CLOUD_NAME', 'leonardocintra'),
-    'api_key': os.environ.get('API_KEY', '182946961533113'),
-    'api_secret': os.environ.get('API_SECRET', 'LAIVTLNHtG5x-TTdUmHgaE3CnsM')
-}
+os.environ['CLOUDINARY_URL'] = 'cloudinary://182946961533113:LAIVTLNHtG5x-TTdUmHgaE3CnsM@leonardocintra'
 
 
 # Internationalization
