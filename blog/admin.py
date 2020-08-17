@@ -9,6 +9,7 @@ class ArtigoImagemInline(admin.TabularInline):
 
 
 class ArtigoAdmin(admin.ModelAdmin):
+    admin.site.site_header = 'Grupo Ladec - Laboratórios'
     prepopulated_fields = {'slug': ('titulo', )}
     inlines = [ArtigoImagemInline]
 
